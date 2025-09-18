@@ -1,6 +1,7 @@
 // components/ScreenContainer.tsx
 import React, { ReactNode } from "react";
 import { View, StyleSheet, ViewStyle } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { GlobalStyles } from "@/constants/Styles";
 
 interface ScreenContainerProps {
@@ -12,7 +13,19 @@ const ScreenContainer: React.FC<ScreenContainerProps> = ({
   children,
   style,
 }) => {
-  return <View style={[styles.container, style]}>{children}</View>;
+  const insets = useSafeAreaInsets();
+
+  return (
+    <View
+      style={[
+        styles.container,
+        { paddingBottom: insets.bottom }, // 👈 add some spacing + safe inset
+        style,
+      ]}
+    >
+      {children}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({

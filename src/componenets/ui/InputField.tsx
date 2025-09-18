@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 14,
     paddingHorizontal: 12,
+    minHeight: 44,
     fontSize: 14,
     color: GlobalStyles.colors.text.primary,
     fontWeight: "bold",
